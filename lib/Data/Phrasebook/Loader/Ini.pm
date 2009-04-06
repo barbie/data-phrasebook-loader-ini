@@ -5,7 +5,7 @@ use Carp qw( croak );
 use base qw( Data::Phrasebook::Loader::Base Data::Phrasebook::Debug );
 use Config::IniFiles;
 
-our $VERSION = '0.10';
+my $VERSION = '0.11';
 
 =head1 NAME
 
@@ -37,8 +37,8 @@ files.
 
 This module provides a base class for phrasebook implementations.
 
-Phrases can be contained within one or more dictionaries, with each phrase 
-accessible via a unique key. Phrases may contain placeholders, please see 
+Phrases can be contained within one or more dictionaries, with each phrase
+accessible via a unique key. Phrases may contain placeholders, please see
 L<Data::Phrasebook> for an explanation of how to use these. Groups of phrases
 are kept in a dictionary. In this implementation a dictionary is considered to
 be equivilent to a section in an ini file.
@@ -50,7 +50,7 @@ An example ini file:
     Welcome to :my world. \
     It is a nice :place.
 
-Within the phrase text placeholders can be used, which are then replaced with 
+Within the phrase text placeholders can be used, which are then replaced with
 the appropriate values once the get() method is called. The default style of
 placeholders can be altered using the delimiters() method.
 
@@ -148,7 +148,7 @@ sub keywords {
     return sort $class->{cfg}->Parameters($dict) if($dict);
 
     my @keywords = $class->{cfg}->Parameters($class->{dict});
-    push @keywords, $class->{cfg}->Parameters($class->{default})    
+    push @keywords, $class->{cfg}->Parameters($class->{default})
         unless($class->{dict} eq $class->{default});
 
     my %keywords = map {$_=>1} @keywords;
@@ -161,7 +161,7 @@ __END__
 
 =head1 CONTINUATION LINES
 
-As this module uses C<Config::IniFiles>, it allows for the use of 
+As this module uses C<Config::IniFiles>, it allows for the use of
 continuation lines as follows:
 
   [Section]
@@ -179,8 +179,8 @@ L<Config::IniFiles>.
 There are no known bugs at the time of this release. However, if you spot a
 bug or are experiencing difficulties, that is not explained within the POD
 documentation, please send an email to barbie@cpan.org or submit a bug to the
-RT system (http://rt.cpan.org/). However, it would help greatly if you are 
-able to pinpoint problems or even supply a patch. 
+RT system (http://rt.cpan.org/). However, it would help greatly if you are
+able to pinpoint problems or even supply a patch.
 
 Fixes are dependant upon their severity and my availablity. Should a fix not
 be forthcoming, please feel free to (politely) remind me.
@@ -201,9 +201,8 @@ be forthcoming, please feel free to (politely) remind me.
 =head1 COPYRIGHT AND LICENSE
 
   Copyright (C) 2004-2007 Barbie for Miss Barbell Productions.
-  All Rights Reserved.
 
-  This module is free software; you can redistribute it and/or 
+  This module is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
 
 The full text of the licenses can be found in the F<Artistic> and
