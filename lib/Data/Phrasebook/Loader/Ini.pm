@@ -5,7 +5,7 @@ use Carp qw( croak );
 use base qw( Data::Phrasebook::Loader::Base Data::Phrasebook::Debug );
 use Config::IniFiles;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 =head1 NAME
 
@@ -133,13 +133,46 @@ sub dicts {
     $class->{cfg}->Sections
 }
 
+=head2 keywords
+
+Returns the list of keywords available. List is lexically sorted.
+
+   my @dicts = $loader->keywords();
+
+=cut
+
+sub keywords {
+	my $class = shift;
+	my $dict  = shift;
+
+    return sort $class->{cfg}->Parameters($dict) if($dict);
+
+    my @keywords = $class->{cfg}->Parameters($class->{dict});
+    push @keywords, $class->{cfg}->Parameters($class->{default})    
+        unless($class->{dict} eq $class->{default});
+
+    my %keywords = map {$_=>1} @keywords;
+    return sort keys %keywords;
+}
+
 1;
 
 __END__
 
+=head1 CONTINUATION LINES
+
+As this module uses C<Config::IniFiles>, it allows for the use of 
+continuation lines as follows:
+
+  [Section]
+  Parameter=this parameter \
+    spreads across \
+    a few lines
+
 =head1 SEE ALSO
 
-L<Data::Phrasebook>.
+L<Data::Phrasebook>,
+L<Config::IniFiles>.
 
 =head1 BUGS, PATCHES & FIXES
 

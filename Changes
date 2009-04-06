@@ -1,5 +1,10 @@
 # Changes log for Data::Phrasebook::Loader::Ini
 
+0.08	09/08/2005
+	- upped prerequisite for Data::Phrasebook to 0.23.
+	- added keywords() support.
+	- added POD for continuation lines.
+
 0.07	15/06/2005
 	- upped prerequisite for Data::Phrasebook to 0.22.
 

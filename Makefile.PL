@@ -3,7 +3,7 @@ WriteMakefile(
     NAME            => 'Data::Phrasebook::Loader::Ini',
     VERSION_FROM    => 'lib/Data/Phrasebook/Loader/Ini.pm',
     PREREQ_PM       => {
-        'Data::Phrasebook' => '0.22',
+        'Data::Phrasebook' => '0.23',
         'Config::IniFiles' => '0',
         'Test::More'       => '0.47',
     },
