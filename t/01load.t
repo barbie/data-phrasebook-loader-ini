@@ -3,14 +3,12 @@ use strict;
 use lib 't';
 use vars qw( $class );
 
-use Test::More tests => 8;
+use Test::More tests => 10;
 
 # ------------------------------------------------------------------------
 
-BEGIN {
-    $class = 'Data::Phrasebook';
-    use_ok $class;
-}
+$class = 'Data::Phrasebook::Loader::Ini';
+use_ok($class);
 
 my $file = 't/01phrases.ini';
 my $dict = 'BASE';
@@ -18,39 +16,26 @@ my $dict = 'BASE';
 # ------------------------------------------------------------------------
 
 {
-    my $obj = $class->new( loader => 'Ini' );
-    isa_ok( $obj => $class.'::Plain', "Bare new" );
-    $obj->file( $file );
-    is( $obj->file() => $file , "Set/get file works");
-    $obj->dict( $dict );
-    is( $obj->dict() => $dict , "Set/get dict works");
-}
+    my $obj = $class->new();
+    isa_ok( $obj => $class, "Bare new" );
 
-{
-    my $obj = $class->new( file => $file, loader => 'Ini' );
-    isa_ok( $obj => $class.'::Plain', "New with file" );
-    is( $obj->file() => $file , "Get file works");
+    eval { $obj->load(); };
+    ok($@);
+    eval { $obj->load( 'blah' ); };
+    ok($@);
 
-    {
-        my $str = $obj->fetch( 'foo', {
-                my => "Iain's",
-                place => 'locale',
-            });
+    eval { $obj->load( $file ); };
+    ok(!$@);
+    eval { $obj->load( $file, 'BLAH' ); };
+    ok(!$@);
+    eval { $obj->load( $file, $dict ); };
+    ok(!$@);
 
-        is ($str, "Welcome to Iain's world. It is a nice locale.",
-            "Fetch matches" );
-    }
-
-    {
-        $obj->delimiters( qr{ :(\w+) }x );
-
-        my $str = $obj->fetch( 'bar', {
-                my => "Bob's",
-                place => 'whatever',
-            });
-
-        is ($str, "Welcome to Bob's world. It is a nice whatever.",
-            "Fetch matches" );
-    }
+    my $phrase = $obj->get();
+    is($phrase,undef);
+    $phrase = $obj->get('blah');
+    is($phrase,undef);
+    $phrase = $obj->get('foo');
+    like( $phrase, qr/Welcome to/);
 }
 

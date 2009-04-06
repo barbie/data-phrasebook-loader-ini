@@ -1,5 +1,10 @@
 # Changes log for Data::Phrasebook::Loader::Ini
 
+0.05	25/03/2005
+	- Added DSLIP information
+	- Rewrote test scripts
+	- Devel::Cover - 98.2%
+
 0.04	03/03/2005
 	- POD updates.
 

@@ -5,7 +5,7 @@ use Carp qw( croak );
 use base qw( Data::Phrasebook::Loader::Base Data::Phrasebook::Debug );
 use Config::IniFiles;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 =head1 NAME
 
@@ -106,6 +106,8 @@ sub get {
 
   	my $data = $class->{cfg}->val( $class->{dict}, $key );
   	$data = $class->{cfg}->val( $class->{default}, $key )	unless($data);
+	return	unless($data);
+
 	$data =~ s!^\s+!!s;
 	$data =~ s!\s+$!!s;
 	$data =~ s!\s+! !sg;
@@ -131,6 +133,14 @@ able to pinpoint problems or even supply a patch.
 
 Fixes are dependant upon their severity and my availablity. Should a fix not
 be forthcoming, please feel free to (politely) remind me.
+
+=head1 DSLIP
+
+  b - Beta testing
+  d - Developer
+  p - Perl-only
+  O - Object oriented
+  p - Standard-Perl: user may choose between GPL and Artistic
 
 =head1 AUTHOR
 
