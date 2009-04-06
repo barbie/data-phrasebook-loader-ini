@@ -7,6 +7,8 @@ WriteMakefile(
         'Config::IniFiles' => '0',
         'Test::More'       => '0.47',
     },
+	NO_META			=> 1,
+
     ($] >= 5.005 ?
       (ABSTRACT_FROM => 'lib/Data/Phrasebook/Loader/Ini.pm',
        AUTHOR        => 'Barbie <barbie@cpan.org>') : ()),
