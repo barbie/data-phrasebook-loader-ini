@@ -1,7 +1,7 @@
 use ExtUtils::MakeMaker;
 WriteMakefile(
-    NAME                => 'Data::Phrasebook::Loader::Ini',
-    VERSION_FROM        => 'lib/Data/Phrasebook/Loader/Ini.pm',
+    NAME            => 'Data::Phrasebook::Loader::Ini',
+    VERSION_FROM    => 'lib/Data/Phrasebook/Loader/Ini.pm',
     PREREQ_PM		=> {
 		'Data::Phrasebook' => '0.18',
         'Config::IniFiles' => '0',
@@ -10,6 +10,4 @@ WriteMakefile(
     ($] >= 5.005 ?
       (ABSTRACT_FROM => 'lib/Data/Phrasebook/Loader/Ini.pm',
        AUTHOR        => 'Barbie <barbie@cpan.org>') : ()),
-    (eval($ExtUtils::MakeMaker::VERSION) >= 6.10 ?
-        ( NO_META => 1, ) : ()),
 );
