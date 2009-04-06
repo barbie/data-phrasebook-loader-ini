@@ -3,7 +3,7 @@ Data::Phrasebook::Loader::Ini
 
 DESCRIPTION
 
-    Abstract your queries ... with ini files!
+  Abstract your queries ... with ini files!
 
 This distribution enables the framework for abstracting common or locale data
 out of your code into a datastore. The default is within a plain text file,
