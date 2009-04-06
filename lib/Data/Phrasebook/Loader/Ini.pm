@@ -5,7 +5,7 @@ use Carp qw( croak );
 use base qw( Data::Phrasebook::Loader::Base Data::Phrasebook::Debug );
 use Config::IniFiles;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 =head1 NAME
 
@@ -21,8 +21,12 @@ Data::Phrasebook::Loader::Ini - Absract your phrases with ini files.
         file   => 'phrases.ini',
     );
 
-    $q->delimiters( qr{ \[% \s* (\w+) \s* %\] }x );
+    # simple keyword to phrase mapping
     my $phrase = $q->fetch($keyword);
+
+    # keyword to phrase mapping with parameters
+    $q->delimiters( qr{ \[% \s* (\w+) \s* %\] }x );
+    my $phrase = $q->fetch($keyword,{this => 'that'});
 
 =head1 ABSTRACT
 
@@ -43,8 +47,8 @@ An example ini file:
 
   [BASE]
   foo=\
-    Welcome to [% my %] world. \
-    It is a nice [%place %].
+    Welcome to :my world. \
+    It is a nice :place.
 
 Within the phrase text placeholders can be used, which are then replaced with 
 the appropriate values once the get() method is called. The default style of
@@ -89,8 +93,9 @@ sub load
 
 	# what sections are we using?
 	($class->{default}) = $cfg->Sections;
-	$class->{dict} = $class->{default}
-  		unless($dict && $class->{cfg}->SectionExists( $dict ));
+	$class->{dict} = $class->{default};
+	$class->{dict} = $dict
+  		if($dict && $class->{cfg}->SectionExists( $dict ));
 };
 
 =head2 get
@@ -113,6 +118,19 @@ sub get {
 	$data =~ s!\s+! !sg;
 
 	return $data;
+}
+
+=head2 dicts
+
+Returns the list of dictionaries available.
+
+   my @dicts = $loader->dicts();
+
+=cut
+
+sub dicts {
+	my $class = shift;
+    $class->{cfg}->Sections
 }
 
 1;

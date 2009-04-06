@@ -1,5 +1,9 @@
 # Changes log for Data::Phrasebook::Loader::Ini
 
+0.06	13/06/2005
+	- dictionary reload bug spotted (Sam Tregar).
+	- added dicts() support.
+
 0.05	25/03/2005
 	- Added DSLIP information
 	- Rewrote test scripts
