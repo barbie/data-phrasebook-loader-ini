@@ -1,7 +1,8 @@
 # Changes log for Data::Phrasebook::Loader::Ini
 
-0.11    current
-        - spelling fix. (thanks to Florian Schlichting & Gregor Herrmann).
+0.11    28/07/2012
+        - spelling fix. (thanks to Nicholas Bamber, Florian Schlichting & 
+	  Gregor Herrmann).
         - removed License files from distro.
         - Artistic License v2 now sole license.
         - removed DSLIP info.
