@@ -1,23 +1,25 @@
 --- #YAML:1.0
-name:                   Data-Phrasebook-Loader-Ini
-version:                0.11
-abstract:               Loader class for phrasebook implementations using INI files
+name:                     Data-Phrasebook-Loader-Ini
+version:                  0.11
+abstract:                 Loader class for phrasebook implementations using INI files
 author:
   - Barbie <barbie@cpan.org>
 
-license:                artistic_2
-distribution_type:      module
-installdirs:            site
+license:                  artistic_2
+distribution_type:        module
+installdirs:              site
 
 requires:
-  Data::Phrasebook:     0.24
-  Config::IniFiles:     0
+  Data::Phrasebook:       0.24
+  Config::IniFiles:       0
 recommends:
-  Test::Pod:            1.00
-  Test::Pod::Coverage:  0.08
-  Test::YAML::Meta:     0
+  Test::CPAN::Meta:       0
+  Test::CPAN::Meta::JSON: 0
+  Test::Pod:              1.00
+  Test::Pod::Coverage:    0.08
 build_requires:
-  Test::More:           0.70
+  IO::File:               0
+  Test::More:             0.70
 
 provides:
   Data::Phrasebook::Loader::Ini:
