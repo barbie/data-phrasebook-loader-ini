@@ -4,6 +4,7 @@
         - spelling fix. (thanks to Florian Schlichting & Gregor Herrmann).
         - removed License files from distro.
 	- Artistic License v2 now sole license.
+        - removed DSLIP info.
 
 0.10    01/03/2007
 	- Fixed META.yml typos.
