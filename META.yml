@@ -1,11 +1,11 @@
 --- #YAML:1.0
 name:                   Data-Phrasebook-Loader-Ini
-version:                0.10
+version:                0.11
 abstract:               This module provides a loader class for phrasebook implementations using INI files.
 author:
   - Barbie <barbie@cpan.org>
 
-license:                gpl
+license:                artistic_2
 distribution_type:      module
 installdirs:            site
 
@@ -24,7 +24,7 @@ build_requires:
 provides:
   Data::Phrasebook::Loader::Ini:
     file:     lib/Data/Phrasebook/Loader/Ini.pm
-    version:  0.10
+    version:  0.11
 no_index:
   directory:
     - t

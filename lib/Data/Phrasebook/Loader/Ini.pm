@@ -5,7 +5,7 @@ use Carp qw( croak );
 use base qw( Data::Phrasebook::Loader::Base Data::Phrasebook::Debug );
 use Config::IniFiles;
 
-my $VERSION = '0.11';
+our $VERSION = '0.11';
 
 =head1 NAME
 
@@ -182,7 +182,7 @@ documentation, please send an email to barbie@cpan.org or submit a bug to the
 RT system (http://rt.cpan.org/). However, it would help greatly if you are
 able to pinpoint problems or even supply a patch.
 
-Fixes are dependant upon their severity and my availablity. Should a fix not
+Fixes are dependent upon their severity and my availability. Should a fix not
 be forthcoming, please feel free to (politely) remind me.
 
 =head1 DSLIP
@@ -203,10 +203,6 @@ be forthcoming, please feel free to (politely) remind me.
   Copyright (C) 2004-2007 Barbie for Miss Barbell Productions.
 
   This module is free software; you can redistribute it and/or
-  modify it under the same terms as Perl itself.
-
-The full text of the licenses can be found in the F<Artistic> and
-F<COPYING> files included with this module, or in L<perlartistic> and
-L<perlgpl> in Perl 5.8.1 or later.
+  modify it under the Artistic License 2.0.
 
 =cut
