@@ -1,6 +1,6 @@
 {
     "name": "Data-Phrasebook-Loader-Ini",
-    "version": "0.11",
+    "version": "0.12",
     "abstract": "Loader class for phrasebook implementations using INI files",
     "author": [
         "Barbie (BARBIE) <barbie@cpan.org>"
@@ -22,8 +22,9 @@
         "runtime" : {
             "requires" : {
                 "perl": "5.006",
-                "Data::Phrasebook": "0.24",
-                "Config::IniFiles": "0"
+                "Carp": "0",
+                "Config::IniFiles": "0",
+                "Data::Phrasebook": "0.24"
             }
         },
         "test" : {
@@ -43,7 +44,7 @@
     "provides": {
         "Data::Phrasebook::Loader::Ini": {
             "file": "lib/Data/Phrasebook/Loader/Ini.pm",
-            "version": "0.11"
+            "version": "0.12"
         }
     },
     "no_index": {

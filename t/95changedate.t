@@ -1,3 +1,6 @@
+#!/usr/bin/perl -w
+use strict;
+
 use Test::More;
 use IO::File;
 use Data::Phrasebook::Loader::Ini;
@@ -8,7 +11,7 @@ plan skip_all => "Author tests not required for installation"
 
 my $fh = IO::File->new('Changes','r')   or plan skip_all => "Cannot open Changes file";
 
-plan no_plan;
+plan 'no_plan';
 
 my $latest = 0;
 while(<$fh>) {

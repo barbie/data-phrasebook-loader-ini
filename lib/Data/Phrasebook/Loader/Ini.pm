@@ -5,7 +5,7 @@ use Carp qw( croak );
 use base qw( Data::Phrasebook::Loader::Base Data::Phrasebook::Debug );
 use Config::IniFiles;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 =head1 NAME
 
@@ -145,14 +145,18 @@ sub keywords {
 	my $class = shift;
 	my $dict  = shift;
 
-    return sort $class->{cfg}->Parameters($dict) if($dict);
+    if($dict) {
+        my @dicts = sort $class->{cfg}->Parameters($dict);
+        return @dicts;
+    }
 
     my @keywords = $class->{cfg}->Parameters($class->{dict});
     push @keywords, $class->{cfg}->Parameters($class->{default})
         unless($class->{dict} eq $class->{default});
 
     my %keywords = map {$_=>1} @keywords;
-    return sort keys %keywords;
+    @keywords = sort keys %keywords;
+    return @keywords;
 }
 
 1;
