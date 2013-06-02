@@ -1,6 +1,6 @@
 {
     "name": "Data-Phrasebook-Loader-Ini",
-    "version": "0.12",
+    "version": "0.13",
     "abstract": "Loader class for phrasebook implementations using INI files",
     "author": [
         "Barbie (BARBIE) <barbie@cpan.org>"
@@ -47,7 +47,7 @@
     "provides": {
         "Data::Phrasebook::Loader::Ini": {
             "file": "lib/Data/Phrasebook/Loader/Ini.pm",
-            "version": "0.12"
+            "version": "0.13"
         }
     },
     "no_index": {
