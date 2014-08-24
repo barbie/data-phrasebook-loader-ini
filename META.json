@@ -1,6 +1,6 @@
 {
     "name": "Data-Phrasebook-Loader-Ini",
-    "version": "0.13",
+    "version": "0.14",
     "abstract": "Loader class for phrasebook implementations using INI files",
     "author": [
         "Barbie (BARBIE) <barbie@cpan.org>"
@@ -13,7 +13,7 @@
         "version": "2",
         "url": "http://search.cpan.org/dist/CPAN-Meta/lib/CPAN/Meta/Spec.pm"
     },
-    "generated_by": "Hand 1.0",
+    "generated_by": "The Hand of Barbie 1.0",
     "keywords" : [
         "abstract",
         "data",
@@ -47,7 +47,7 @@
     "provides": {
         "Data::Phrasebook::Loader::Ini": {
             "file": "lib/Data/Phrasebook/Loader/Ini.pm",
-            "version": "0.13"
+            "version": "0.14"
         }
     },
     "no_index": {

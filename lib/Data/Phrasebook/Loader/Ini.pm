@@ -5,7 +5,7 @@ use Carp qw( croak );
 use base qw( Data::Phrasebook::Loader::Base Data::Phrasebook::Debug );
 use Config::IniFiles;
 
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 
 =head1 NAME
 
